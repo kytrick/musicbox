@@ -1,4 +1,5 @@
 
+/*giving the canvas a silly little boarder so that I can actually see it*/
 #canvas {
   border: 1px solid black;
 }
