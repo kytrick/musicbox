@@ -2,11 +2,30 @@
 // This is the "V" part of MVC
 
 
-// Get the canvas from the DOM
+// Get the canvas from the DOM with this View constructor
 function View(canvas) {
 
 	this.canvas=canvas;
+	this.clicks = []; // array that will store your circles
 }
+
+//add a click handler:
+
+View.prototype.handleClick = function(event) {
+	var view = this;  // this refers to the canvas object, not the view object
+	var x = event.offsetX;
+	var y = event.offsetY;
+
+	console.log(x);
+	console.log(y);
+	console.log(view);
+	console.log(this);
+
+	var pos = view.clicks.push({x: x, y: y, radius: 100});  //adds your click to the circle array
+	console.log("Add a circle at", x, ", ", y);
+
+
+};
 
 //add an updateDisplay method to the View:
 
@@ -18,7 +37,7 @@ View.prototype.updateDisplay = function() {
 	context.fillStyle = 'black';
 	context.fillRect(0, 0, view.canvas.width, view.canvas.height);
 
-	view.drawCircle(context, 150, 150, 100, 1); //this is devined in the next method
+	view.drawCircle(context, 150, 150, 100, 1); //this is devined in the next method drawCircle
 };
 
 //add a drawCircle method to the View:
