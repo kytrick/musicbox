@@ -7,6 +7,7 @@ function View(canvas) {
 
 	this.canvas=canvas;
 	this.clicks = []; // array that will store your circles
+	this.frameRate = 1000/30; //about 33 frames per second
 }
 
 //add a click handler:
@@ -37,7 +38,14 @@ View.prototype.updateDisplay = function() {
 	context.fillStyle = 'black';
 	context.fillRect(0, 0, view.canvas.width, view.canvas.height);
 
-	view.drawCircle(context, 150, 150, 100, 1); //this is devined in the next method drawCircle
+	// loop through the clicks and generate circles
+
+	for (var i = 0; i < view.clicks.length; i++) {
+		var circle = view.clicks[i];
+		view.drawCircle(context, circle.x, circle.y, circle.radius, 1);
+	}
+
+	// view.drawCircle(context, 150, 150, 100, 1); //this is devined in the next method drawCircle
 };
 
 //add a drawCircle method to the View:

@@ -13,5 +13,8 @@ window.onload = function() {
 	// canvas.addEventListener("click", view.handleClick, false);
 	canvas.addEventListener("click", view.handleClick.bind(view), false);
 
+	// setInterval calls a function over and over
+	setInterval(view.updateDisplay.bind(view), view.frameRate);
+
 	view.updateDisplay();
 }
