@@ -7,8 +7,9 @@ function View(canvas) {
 
 	this.canvas=canvas;
 	this.clicks = []; // array that will store your circles
-	this.frameRate = 1000/30; //about 33 frames per second
-	this.maxRadius = 80; //reasonable size for circles, good disappearing point.
+	this.frameRate = 1000/30; // about 33 frames per second
+	this.maxRadius = 80; // reasonable size for circles, good disappearing point.
+	this.loopRate = 4000; // circle necromancy every 4 seconds
 }
 
 //add a click handler:
@@ -18,14 +19,17 @@ View.prototype.handleClick = function(event) {
 	var x = event.offsetX;
 	var y = event.offsetY;
 
-	console.log(x);
-	console.log(y);
-	console.log(view);
-	console.log(this);
+	// console.log(x);
+	// console.log(y);
+	// console.log(view);
+	// console.log(this);
 
 	var pos = view.clicks.push({x: x, y: y, radius: 0});  //adds your click to the circle array
 	console.log("Add a circle at", x, ", ", y);
 
+	setInterval( function() {
+		view.clicks[pos - 1].radius = 0;
+		}, view.loopRate);
 
 };
 
