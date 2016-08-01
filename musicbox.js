@@ -3,16 +3,17 @@ window.onload = function() {
 	var bufferLoader = new BufferLoader(
         Audio.audioContext,
         [
-            "A4.mp3",
-            "A5.mp3",
-            "C4.mp3",
-            "C5.mp3",
-            "D4.mp3",
-            "D5.mp3",
-            "E4.mp3",
-            "E5.mp3",
-            "G4.mp3",
-            "G5.mp3",
+            "musicnotes/A4.mp3",
+            "musicnotes/A5.mp3",
+            "musicnotes/C4.mp3",
+            "musicnotes/C5.mp3",
+            "musicnotes/D4.mp3",
+            "musicnotes/D5.mp3",
+            "musicnotes/E4.mp3",
+            "musicnotes/E5.mp3",
+            "musicnotes/G4.mp3",
+            "musicnotes/G5.mp3",
+
         ],
         finishedLoading
     );
